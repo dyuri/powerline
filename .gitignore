@@ -2,6 +2,7 @@ tags
 
 *.py[co]
 __pycache__
+.mypy_cache
 
 *.egg
 *.egg-info

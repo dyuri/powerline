@@ -46,13 +46,11 @@ def get_preferred_output_encoding():
 	if hasattr(locale, 'LC_MESSAGES'):
 		return (
 			locale.getlocale(locale.LC_MESSAGES)[1]
-			or locale.getdefaultlocale()[1]
-			or 'ascii'
+			or 'utf-8'
 		)
 
 	return (
-		locale.getdefaultlocale()[1]
-		or 'ascii'
+		'utf-8'
 	)
 
 
@@ -60,19 +58,17 @@ def get_preferred_input_encoding():
 	'''Get encoding that should be used for reading shell command output
 
 	.. warning::
-		Falls back to latin1 so that function is less likely to throw as decoded 
+		Falls back to utf-8 so that function is less likely to throw as decoded 
 		output is primary searched for ASCII values.
 	'''
 	if hasattr(locale, 'LC_MESSAGES'):
 		return (
 			locale.getlocale(locale.LC_MESSAGES)[1]
-			or locale.getdefaultlocale()[1]
-			or 'latin1'
+			or 'utf-8'
 		)
 
 	return (
-		locale.getdefaultlocale()[1]
-		or 'latin1'
+		'utf-8'
 	)
 
 
@@ -80,14 +76,13 @@ def get_preferred_arguments_encoding():
 	'''Get encoding that should be used for command-line arguments
 
 	.. warning::
-		Falls back to latin1 so that function is less likely to throw as 
+		Falls back to utf-8 so that function is less likely to throw as 
 		non-ASCII command-line arguments most likely contain non-ASCII 
 		filenames and screwing them up due to unidentified locale is not much of 
 		a problem.
 	'''
 	return (
-		locale.getdefaultlocale()[1]
-		or 'latin1'
+		'utf-8'
 	)
 
 
